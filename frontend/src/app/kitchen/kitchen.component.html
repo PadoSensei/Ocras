@@ -1,0 +1,14 @@
+<p>
+  kitchen works! Now get to work
+</p>
+<ion-item *ngFor="let order of orders">
+  <ion-label> Table: {{ order.tableNum }} </ion-label>
+  
+  <ion-label> Food: {{ order.foodOrder }} </ion-label>
+  
+  <ion-label> Drinks: {{ order.drinkOrder }} </ion-label>
+  <ion-label> isServed?: {{ order.isServed }} </ion-label>
+  
+  <ion-button> Served!! </ion-button>
+  
+</ion-item>
