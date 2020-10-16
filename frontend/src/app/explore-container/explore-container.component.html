@@ -1,4 +1,11 @@
-<div id="container">
-  <strong>{{ name }}</strong>
-  <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-</div>
+<ion-item *ngFor="let order of orders">
+    <ion-label> Table: {{ order.tableNum }} </ion-label>
+    
+    <ion-label> Food: {{ order.foodOrder }} </ion-label>
+    
+    <ion-label> Drinks: {{ order.drinkOrder }} </ion-label>
+    <ion-label> Served?: {{ order.isServed }} </ion-label>
+    <ion-label> Paid?: {{ order.isPaid }} </ion-label>
+    <ion-button> Served!! </ion-button>
+    
+  </ion-item>
