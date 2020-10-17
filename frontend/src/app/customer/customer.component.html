@@ -1,8 +1,17 @@
-<ul class="menu-list">
+<!-- <ul class="menu-list">
   <li *ngFor="let item of items" (click)="handleClick($event)">
     <div class="menu-item">
       <div class="food">{{item.item}}</div>
       <div class="price">{{item.price}}</div>
     </div>
   </li>
-</ul>
+</ul> -->
+<!-- List of Text Items -->
+
+<ion-list *ngFor="let item of items" (click)="handleClick($event)">
+  <ion-item >{{item.item}}</ion-item>
+  <ion-item >{{item.price}}</ion-item>
+  <ion-label>Add to order?</ion-label>
+  <ion-toggle slot="end"></ion-toggle>
+</ion-list>
+
