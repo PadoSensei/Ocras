@@ -7,7 +7,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 //import { CrudService } from '../crud.service'
-
+import { CustomerComponent } from '../customer/customer.component'
 @NgModule({
   imports: [
     IonicModule,
@@ -17,6 +17,6 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     Tab1PageRoutingModule,
     //CrudService
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page, CustomerComponent]
 })
 export class Tab1PageModule {}
