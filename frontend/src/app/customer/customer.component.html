@@ -1,3 +1,8 @@
-<p>
-  customer works! Now add Mykhailo's content
-</p>
+<ul class="menu-list">
+  <li *ngFor="let item of items" (click)="handleClick($event)">
+    <div class="menu-item">
+      <div class="food">{{item.item}}</div>
+      <div class="price">{{item.price}}</div>
+    </div>
+  </li>
+</ul>
