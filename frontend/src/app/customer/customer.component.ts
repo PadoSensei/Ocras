@@ -51,7 +51,7 @@ export class CustomerComponent implements OnInit {
   })
   }
   
-  createNewOrders(SELECTEDiTEMS): void {
+  createNewOrders(): void {
     const orders = this.crudService.createNewOrder();
     console.log(orders)
   }
@@ -61,6 +61,6 @@ export class CustomerComponent implements OnInit {
     this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
     event.currentTarget.style.backgroundColor = '#abcdeb';
     event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
-    console.log(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
+    console.log(event.currentTarget.childNodes[0].childNodes[0]);
   }
 }
