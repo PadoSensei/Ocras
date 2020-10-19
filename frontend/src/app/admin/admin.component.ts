@@ -1,13 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { CrudService } from "../crud.service";
 
-
 @Component({
   selector: "app-order-list",
   templateUrl: "./order-list.component.html",
   styleUrls: ["./order-list.component.scss"]
 })
-export class OrderListComponent implements OnInit {
+export class AdminComponent implements OnInit {
   constructor(private ordersService: CrudService) {}
 
   ngOnInit() {}

@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { Tab4PageRoutingModule } from './tab4-routing.module';
 
 import { Tab4Page } from './tab4.page';
-import { AdminComponent } from '../admin/admin.component'
+// import { AdminComponent } from '../admin/admin.component'
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { AdminComponent } from '../admin/admin.component'
     FormsModule,
     IonicModule,
     Tab4PageRoutingModule, 
-    //AdminComponent
+    // AdminComponent
     
   ],
   declarations: [Tab4Page, AdminComponent
