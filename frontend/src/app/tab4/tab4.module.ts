@@ -15,9 +15,10 @@ import { AdminComponent } from '../admin/admin.component'
     FormsModule,
     IonicModule,
     Tab4PageRoutingModule, 
-    AdminComponent
+    //AdminComponent
     
   ],
-  declarations: [Tab4Page, AdminComponent] 
+  declarations: [Tab4Page, AdminComponent
+  ] 
 })
 export class Tab4PageModule {}
