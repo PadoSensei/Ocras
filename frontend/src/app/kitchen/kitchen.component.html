@@ -1,42 +1,12 @@
-<ion-card>
-  <ion-item>
-    <!-- <ion-avatar slot="start">
-      <img src="../../assets/user.jpg">
-    </ion-avatar> -->
-    <ion-label>
-      <h3>John Doe</h3>
-      <p>Dec 10, 2019</p>
-    </ion-label>
-  </ion-item>
 
-  <!-- <img src="../../assets/hotel.jpeg" alt="ion"> -->
-  <ion-card-header>
-    <ion-card-title>Hotel Panama Garden</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis mollis ligula sed ultrices.
-  </ion-card-content>
+<ion-card *ngFor="let order of orders">
 
-  <ion-footer>
-    <ion-row>
-      <ion-col center text-center>
-        <button>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>1.5k Likes</div>
-        </button>
-      </ion-col>
-      <ion-col center text-center>
-        <button>
-          <ion-icon name="text"></ion-icon>
-          <div>4 Comments</div>
-        </button>
-      </ion-col>
-      <ion-col center text-center>
-        <button>
-          <ion-icon name="time"></ion-icon>
-          <div>11h ago</div>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-footer>
+  <ion-card-title>
+    <h2>Table: {{order.tableNum}}</h2>
+    <h5>Ordered at:22:34</h5>
+  </ion-card-title>
+
+
+
 </ion-card>
+
