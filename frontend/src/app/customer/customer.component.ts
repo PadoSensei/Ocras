@@ -56,6 +56,7 @@ export class CustomerComponent implements OnInit {
     console.log(orders)
   }
 
+
   handleClick(event): void {
     this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
     event.currentTarget.style.backgroundColor = '#abcdeb';
