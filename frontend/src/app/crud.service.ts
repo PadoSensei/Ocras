@@ -15,15 +15,15 @@ export class CrudService {
     price: new FormControl(''),
     description: new FormControl(''),
     type: new FormControl(''),
-})
+  })
 
-menuForm = new FormGroup({        
-    name: new FormControl(''), 
-    address: new FormControl(''), 
-    tables: new FormControl(''),
-    drinkItems: new FormControl([]),
-    foodItems: new FormControl([]),
-})
+  menuForm = new FormGroup({        
+      name: new FormControl(''), 
+      address: new FormControl(''), 
+      tables: new FormControl(''),
+      drinkItems: new FormControl([]),
+      foodItems: new FormControl([]),
+  })
   //Firestore CRUD actions 
   // create new order in db
   createNewOrder() {

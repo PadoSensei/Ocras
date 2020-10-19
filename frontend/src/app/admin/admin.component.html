@@ -4,7 +4,7 @@
   </div>
 </ion-title>
 
-<form [formGroup]="this.ordersService.menuForm">
+<form [formGroup]="this.crudService.menuForm">
   <h5>Business Info:</h5>
   <ion-item>
     <ion-label position="floating">Name</ion-label>
@@ -21,7 +21,7 @@
     <ion-input type="number" [(ngModel)]="tables" required='true' min=1 formControlName="tables"></ion-input>
   </ion-item>
   
-  <form [formGroup]="this.ordersService.itemForm">
+  <form [formGroup]="this.crudService.itemForm">
     <h5>Menu Info:</h5>
     <ion-item>
       <ion-label position="floating">Item</ion-label>
@@ -39,7 +39,7 @@
     </ion-item>
   </form>
 
-  <button class="waves-effect waves-light btn col s12" (click)="addItem([item, price, description])">
+  <button class="waves-effect waves-light btn col s12" (click)="addItem([item, price, description, type])">
     Add
   </button>
 

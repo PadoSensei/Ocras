@@ -1,24 +1,27 @@
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
+import { ReactiveFormsModule } from "@angular/forms";
+import { Tab4Page } from './tab4.page';
 
 import { Tab4PageRoutingModule } from './tab4-routing.module';
-
-import { Tab4Page } from './tab4.page';
-// import { AdminComponent } from '../admin/admin.component'
+import { AdminComponent } from '../admin/admin.component'
 
 @NgModule({
   imports: [
+    IonicModule,
     CommonModule,
     FormsModule,
-    IonicModule,
+    RouterModule.forChild([{ path: '', component: Tab4Page }]),
     Tab4PageRoutingModule, 
-    // AdminComponent
-    
+    ReactiveFormsModule
   ],
-  declarations: [Tab4Page, AdminComponent
+  entryComponents: [AdminComponent],
+  declarations: [
+    Tab4Page,
+    AdminComponent
   ] 
 })
 export class Tab4PageModule {}
