@@ -1,11 +1,70 @@
-<ion-card>
+<ion-title>
+  <div class="ion-text-uppercase ion-text-center">
+    <h4>Ocras Menu Form</h4>
+  </div>
+</ion-title>
 
-  <ion-card-title>
-    <h2>Table: 4</h2>
-    <h5>Ordered at: 22:34</h5>
-  </ion-card-title>
+<form [formGroup]="this.crudService.menuForm">
+  <h5>Business Info:</h5>
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input type="text" [(ngModel)]="name" required='true' formControlName="name"></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label position="floating">Address</ion-label>
+    <ion-input type="text" [(ngModel)]="address" required='true' formControlName="address"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Number of tables</ion-label>
+    <ion-input type="number" [(ngModel)]="tables" required='true' min=1 formControlName="tables"></ion-input>
+  </ion-item>
   
+  <form [formGroup]="this.crudService.itemForm">
+    <h5>Menu Info:</h5>
+    <ion-item>
+      <ion-label position="floating">Item</ion-label>
+      <ion-input type="text" [(ngModel)]="item" required='true' formControlName="item"></ion-input>
+      <ion-label position="floating">Price</ion-label>
+      <ion-input type="number" [(ngModel)]="price" inputmode='numeric' required='true' min='0' formControlName="price"></ion-input>
+      <ion-label position="floating">Description</ion-label>
+      <ion-input type="text" [(ngModel)]="description" required='true' formControlName="description"></ion-input>
+      <ion-item>
+        <ion-select interface="popover" [(ngModel)]="type" multiple="false" placeholder="Select One" formControlName="type">
+          <ion-select-option value="drink">Drink</ion-select-option>
+          <ion-select-option value="food">Food</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-item>
+  </form>
 
-</ion-card>
-<p>Hello world, I'm the admin comp.</p>
+  <button class="waves-effect waves-light btn col s12" (click)="addItem([item, price, description, type])">
+    Add
+  </button>
+
+  <ul class="collection">
+    <h6>Food Items:</h6>
+    <li *ngFor="let food of foodItems">
+      <span class="col s11"> Item: {{ food[0] }} </span>
+      <span class="col s11"> Price: ${{ food[1] }} </span>
+      <span class="col s11"> Description: {{ food[2] }} </span>
+      <ion-icon class="col s1" name="trash" (click)="removeItem(food)"></ion-icon>
+    </li>
+    <h6>Drink Items:</h6>
+    <li *ngFor="let drink of drinkItems">
+      <span class="col s11"> Item: {{ drink[0] }} </span>
+      <span class="col s11"> Price: ${{ drink[1] }} </span>
+      <span class="col s11"> Description: {{ drink[2] }} </span>
+      <ion-icon class="col s1" name="trash" (click)="removeItem(drink)"></ion-icon>
+    </li>
+  </ul>
+
+  <button class="waves-effect waves-light btn col s12" (click)="onSubmit()">
+    Submit
+  </button>
+
+</form>
+
+
+ 

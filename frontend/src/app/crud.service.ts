@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-
-
+import { FormControl, FormGroup } from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,22 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class CrudService {
 
   constructor( private firestore: AngularFirestore ) { }
+  itemForm = new FormGroup({        
+    drinkOrder: new FormControl(''), 
+    foodOrder: new FormControl(''), 
+    item: new FormControl(''),
+    price: new FormControl(''),
+    description: new FormControl(''),
+    type: new FormControl(''),
+  })
 
+  menuForm = new FormGroup({        
+      name: new FormControl(''), 
+      address: new FormControl(''), 
+      tables: new FormControl(''),
+      drinkItems: new FormControl([]),
+      foodItems: new FormControl([]),
+  })
   //Firestore CRUD actions 
   // create new order in db
   createNewOrder() {
@@ -36,7 +50,20 @@ export class CrudService {
     return (data)
   }
 
-  
+  createMenu(data) {
+    console.log('after', data)
+    const menuData = {
+      name: data.name,
+      address: data.address,
+      tables: data.tables,
+      drinkItems: data.drinkItems.flat(),
+      foodItems: data.foodItems.flat()
+    }
+    return this.firestore
+      .collection("menu")
+      .add(menuData)
+      .then(res => {}, err => console.error(err));
+  }
 
   // getOrders(): Observable<Order[]> {
   //   return of(ORDERS);
