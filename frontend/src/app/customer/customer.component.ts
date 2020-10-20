@@ -59,13 +59,7 @@ export class CustomerComponent implements OnInit {
       for (let i = 0; i < this.menuItems[0].drinkItems.length; i += 3) {
         this.drinkItems.push(this.menuItems[0].drinkItems.slice(i, i + 3))
       }
-      // this.foodItems.push(this.menuItems[0].drinkitems)
-
-      
-      console.log('menuitem',this.menuItems)
-      console.log('fooditem',this.foodItems)
-      console.log('drinkitem',this.drinkItems)
-  })
+    })
   }
   
   createNewOrders(): void {
