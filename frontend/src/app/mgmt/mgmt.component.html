@@ -1,13 +1,22 @@
 
-<ion-item *ngFor="let order of orders">
-  
-  <ion-label> Table: {{ order.tableNum }} </ion-label>
-  
-  <ion-label>  Food: {{ order.foodOrder }} </ion-label>
-  
-  <ion-label> Drinks: {{ order.drinkOrder }} </ion-label>
-  
-  <ion-label> isPaid?: {{ order.isPaid }} </ion-label>
-  <ion-button (click)="togglePaid(order)"> Paid!! </ion-button>
-  
-</ion-item>
+<ion-card *ngFor="let order of orders">
+  <ion-card-header>
+    <ion-card-subtitle>Time</ion-card-subtitle>
+    <ion-card-title>Table: {{ order.tableNum }} </ion-card-title>
+  </ion-card-header>
+
+  <ion-item>
+    <ion-icon name="pin" slot="start"></ion-icon>
+    <ion-label>Total Bill: </ion-label>
+    <ion-button fill="outline" slot="end">Paid!!</ion-button>
+  </ion-item>
+
+  <ion-card-subtitle>Food</ion-card-subtitle>
+  <ion-card-content>
+    {{ order.foodOrder }}
+  </ion-card-content>
+  <ion-card-subtitle>Drinks</ion-card-subtitle>
+  <ion-card-content>
+    {{ order.drinkOrder }}
+  </ion-card-content>
+</ion-card>
