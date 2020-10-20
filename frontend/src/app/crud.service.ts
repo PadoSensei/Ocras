@@ -28,25 +28,53 @@ export class CrudService {
   // create new order in db
   createNewOrder() {
     const data = {
-      tableNum: 22,
+      tableNum: 11,
       isPaid: false, 
       isServed: false, 
-      foodOrder: ['BLT', 'Irish stew'],
+      foodOrder: ['BLT', 'Irish stew', "ice-cream"],
       drinkOrder: ['coffee', 'more whiskey']
     }
-    return new Promise<any>((resolve, reject) =>{
-      this.firestore
-        .collection('orders')
-        .add(data)
-        .then(res => {}, err => reject(err));
-    });
-  }
+
+    const addOrderWithId = async (data) => {
+      let docRef = this.firestore.collection('orders').add(data);
+      console.log(docRef)
+    try {
+      const docAdded = await docRef;
+      console.log(docAdded.id);
+      this.firestore.doc('orders/' + docAdded.id).update({ id: docAdded.id });
+      return docRef;
+    }
+    catch (err) {
+      return err;
+    }
+    }
+    addOrderWithId(data);
+    // return new Promise<any>((resolve, reject) =>{
+    //   this.firestore
+    //     .collection('orders')
+    //     .add(data)
+    //     .then(res => {}, err => reject(err));
+    };
+  
+
+  // async addDocIDtoCreatedOrder() {
+  
+  //   let docRef = this.firestore.collection('orders').add({"title": 42});
+  //   console.log(docRef)
+  //   try {
+  //     const docAdded = await docRef;
+  //     console.log(docAdded.id);
+  //     this.firestore.doc('orders/' + docAdded.id).update({ id: docAdded.id });
+  //     return docRef;
+  //   }
+  //   catch (err) {
+  //     return err;
+  //   }
+  // }
 
   // gets all orders in db
   getOrders() {
     const data = this.firestore.collection("orders").snapshotChanges();
-    //console.log("coming from the get orders method")
-    //console.log(data)
     return (data)
   }
 
@@ -65,8 +93,51 @@ export class CrudService {
       .then(res => {}, err => console.error(err));
   }
 
-  // getOrders(): Observable<Order[]> {
-  //   return of(ORDERS);
-  // }
+
+  getMenu() {
+    const data = this.firestore.collection('menu').snapshotChanges();
+    console.log(data)
+    return (data)
+  }
+  
+
+  toggleServed(){
+    console.log("Served is yet to be fixed!")
+  }
 
 }
+
+
+
+//   // return new Promise<any>((resolve, reject) =>{
+//   //   this.firestore
+//   //     .collection('orders').doc(id)
+//   //     .update(data)
+//   //     .then(res => {}, err => reject(err));
+//   // });
+//   let db = this.firestore
+//   db.collection("orders").doc('1').update({isServed: true})
+//   .then(function() {
+//     console.log("Document successfully updated!");
+// })
+// .catch(function(error) {
+//     // The document probably doesn't exist.
+//     console.error("Error updating document: ", error);
+// });
+// }
+
+
+
+// var washingtonRef = db.collection("cities").doc("DC");
+
+// // Set the "capital" field of the city 'DC'
+// return washingtonRef.update({
+//     capital: true
+// })
+// .then(function() {
+//     console.log("Document successfully updated!");
+// })
+// .catch(function(error) {
+//     // The document probably doesn't exist.
+//     console.error("Error updating document: ", error);
+// });

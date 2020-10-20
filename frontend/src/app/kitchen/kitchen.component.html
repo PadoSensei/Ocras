@@ -1,12 +1,14 @@
 
-<ion-card *ngFor="let order of orders">
+<ion-item *ngFor="let order of orders">
+  <ion-label> Table: {{ order.tableNum }} </ion-label>
+  <!-- <ion-label> ID: {{ order.id }} </ion-label> -->
+  
+  <ion-label>  Food: {{ order.foodOrder }} </ion-label>
+  
+  <ion-label> Drinks: {{ order.drinkOrder }} </ion-label>
+  
+  <ion-label> isServed?: {{ order.isServed }} </ion-label>
+  <ion-button (click)="toggleServed($event)"> Served! </ion-button>
+</ion-item>
 
-  <ion-card-title>
-    <h2>Table: {{order.tableNum}}</h2>
-    <h5>Ordered at:22:34</h5>
-  </ion-card-title>
-
-
-
-</ion-card>
 

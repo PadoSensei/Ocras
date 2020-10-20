@@ -27,4 +27,5 @@ export class MgmtComponent implements OnInit {
     const orders = this.crudService.createNewOrder();
     console.log(orders)
   }
+
 }

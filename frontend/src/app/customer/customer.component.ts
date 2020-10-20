@@ -38,16 +38,28 @@ export class CustomerComponent implements OnInit {
   constructor(private crudService: CrudService) { }
 
   ngOnInit() {
-    this.getOrders();
+    
+    this.getMenu();
   }
 
+  // I'm still not entirely sure why this works. - P
   orders
+  menu
   
+  // Not needed by this part of the app.
   getOrders = () => {
     this.crudService.getOrders()
         .subscribe(res => {
         this.orders = res.map((snapshot) => (snapshot.payload.doc.data()));
         console.log(this.orders)
+  })
+  }
+
+  getMenu = () => {
+    this.crudService.getMenu()
+        .subscribe(res => {
+        this.menu = res.map((snapshot) => (snapshot.payload.doc.data()));
+        console.log(this.menu)
   })
   }
   

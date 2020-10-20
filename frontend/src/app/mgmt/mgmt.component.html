@@ -1,14 +1,11 @@
-<p>
-  mgmt works! Now you get to work!
-</p>
+
 <ion-item *ngFor="let order of orders">
   <ion-label> Table: {{ order.tableNum }} </ion-label>
   
-  <ion-label> Food: {{ order.foodOrder }} </ion-label>
+  <ion-label>  Food: {{ order.foodOrder }} </ion-label>
   
   <ion-label> Drinks: {{ order.drinkOrder }} </ion-label>
   
   <ion-label> isPaid?: {{ order.isPaid }} </ion-label>
   <ion-button> Paid!! </ion-button>
 </ion-item>
-<p>MOre content</p>
