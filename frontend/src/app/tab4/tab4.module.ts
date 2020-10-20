@@ -9,6 +9,8 @@ import { Tab4Page } from './tab4.page';
 import { Tab4PageRoutingModule } from './tab4-routing.module';
 import { AdminComponent } from '../admin/admin.component'
 
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+
 @NgModule({
   imports: [
     IonicModule,
@@ -16,7 +18,8 @@ import { AdminComponent } from '../admin/admin.component'
     FormsModule,
     RouterModule.forChild([{ path: '', component: Tab4Page }]),
     Tab4PageRoutingModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxQRCodeModule
   ],
   entryComponents: [AdminComponent],
   declarations: [

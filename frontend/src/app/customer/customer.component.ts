@@ -7,62 +7,36 @@ import { CrudService } from '../crud.service'
   styleUrls: ['./customer.component.scss'],
 })
 export class CustomerComponent implements OnInit {
-
-  // this is mock for my data, it's probably unnecesarry
-  items: any = [
-    {
-      item: "Lobster",
-      price: "$25.99"
-    },
-    {
-      item: "Beef Steak",
-      price: "$11.39"
-    },
-    {
-      item: "Fried cocroach",
-      price: "$22.29"
-    },
-    {
-      item: "Lobster fresh",
-      price: "$52.99"
-    },
-    {
-      item: "Bat soup",
-      price: "$6monthsofquarantine"
-    },
-  ];
-
-  // this is where selected items are pushed
-  selectedItems = [];
-
   constructor(private crudService: CrudService) { }
 
   ngOnInit() {
     let backgr = document.querySelector('#background-content')
     console.log(backgr);
-    
     this.getMenu();
   }
 
-  // I'm still not entirely sure why this works. - P
-  orders
-  menu
+  name;
+  address;
+  foodItems = [];
+  drinkItems = [];
+  selectedItems = [];
+  menuItems = [];
   
-  // Not needed by this part of the app.
-  // getOrders = () => {
-  //   this.crudService.getOrders()
-  //       .subscribe(res => {
-  //       this.orders = res.map((snapshot) => (snapshot.payload.doc.data()));
-  //       console.log(this.orders)
-  // })
-  // }
-
   getMenu = () => {
     this.crudService.getMenu()
-        .subscribe(res => {
-        this.menu = res.map((snapshot) => (snapshot.payload.doc.data()));
-        console.log(this.menu)
-  })
+      .subscribe(res => {
+      this.menuItems = res.map((snapshot) => (snapshot.payload.doc.data()));
+      this.name = this.menuItems[0].name;
+      this.address = this.menuItems[0].address;
+      
+      for (let i = 0; i < this.menuItems[0].foodItems.length; i += 3) {
+        this.foodItems.push(this.menuItems[0].foodItems.slice(i, i + 3))
+      }
+
+      for (let i = 0; i < this.menuItems[0].drinkItems.length; i += 3) {
+        this.drinkItems.push(this.menuItems[0].drinkItems.slice(i, i + 3))
+      }
+    })
   }
   
   createNewOrders(): void {
