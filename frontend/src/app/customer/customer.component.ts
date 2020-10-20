@@ -38,16 +38,28 @@ export class CustomerComponent implements OnInit {
   constructor(private crudService: CrudService) { }
 
   ngOnInit() {
-    this.getOrders();
+    
+    this.getMenu();
   }
 
+  // I'm still not entirely sure why this works. - P
   orders
+  menu
   
-  getOrders = () => {
-    this.crudService.getOrders()
+  // Not needed by this part of the app.
+  // getOrders = () => {
+  //   this.crudService.getOrders()
+  //       .subscribe(res => {
+  //       this.orders = res.map((snapshot) => (snapshot.payload.doc.data()));
+  //       console.log(this.orders)
+  // })
+  // }
+
+  getMenu = () => {
+    this.crudService.getMenu()
         .subscribe(res => {
-        this.orders = res.map((snapshot) => (snapshot.payload.doc.data()));
-        console.log(this.orders)
+        this.menu = res.map((snapshot) => (snapshot.payload.doc.data()));
+        console.log(this.menu)
   })
   }
   
@@ -56,11 +68,11 @@ export class CustomerComponent implements OnInit {
     console.log(orders)
   }
 
-
-  handleClick(event): void {
-    this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
-    event.currentTarget.style.backgroundColor = '#abcdeb';
-    event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
-    console.log(event.currentTarget.childNodes[0].childNodes[0]);
-  }
+  //Not required
+  // handleClick(event): void {
+  //   this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
+  //   event.currentTarget.style.backgroundColor = '#abcdeb';
+  //   event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
+  //   console.log(event.currentTarget.childNodes[0].childNodes[0]);
+  // }
 }

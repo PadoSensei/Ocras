@@ -29,4 +29,10 @@ export class KitchenComponent implements OnInit {
     const orders = this.crudService.createNewOrder();
     console.log(orders)
   }
+
+  toggleServed = (order) => {
+    //console.log("marked log", 'order.id')
+    this.crudService.toggleServed(order)
+  }
+  
 }

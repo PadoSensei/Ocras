@@ -23,8 +23,9 @@ export class MgmtComponent implements OnInit {
   })
   }
   
-  createNewOrders(): void {
-    const orders = this.crudService.createNewOrder();
-    console.log(orders)
+  // Sets isPaid to 'true' on MGMT screen.
+  togglePaid = (order) => {
+    
+    this.crudService.togglePaid(order)
   }
 }
