@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+
+*{
+  color: rgb(77, 66, 53);
+  font-family: 'Cinzel', serif;
+
+}
+
+button {
+  background-color: rgba(206, 147, 113, 0.836);
+  border: 1px solid rgb(245, 246, 216);
+  padding: 5px 12px;
+  font-size: 20px;
+  border-radius: 12px;
+  color: rgb(245, 246, 216);
+}
+
+.native-input.sc-ion-input-md {
+  all: unset;
+}
+
+ion-item {
+  width: 96%;
+  border-radius: 12px;
+  margin-bottom: 0;
+}

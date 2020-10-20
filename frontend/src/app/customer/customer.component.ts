@@ -10,6 +10,8 @@ export class CustomerComponent implements OnInit {
   constructor(private crudService: CrudService) { }
 
   ngOnInit() {
+    let backgr = document.querySelector('#background-content')
+    console.log(backgr);
     this.getMenu();
   }
 
@@ -43,10 +45,10 @@ export class CustomerComponent implements OnInit {
   }
 
   //Not required
-  // handleClick(event): void {
-  //   this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
-  //   event.currentTarget.style.backgroundColor = '#abcdeb';
-  //   event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
-  //   console.log(event.currentTarget.childNodes[0].childNodes[0]);
-  // }
+  handleClick(event): void {
+    this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
+    event.currentTarget.style.backgroundColor = '#abcdeb';
+    event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
+    console.log(event.currentTarget.childNodes[0].childNodes[0]);
+  }
 }
