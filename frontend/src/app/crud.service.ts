@@ -75,14 +75,10 @@ export class CrudService {
       }, err => console.error(err));
   }
 
-
   getMenu() {
-    const data = this.firestore.collection('menu').snapshotChanges();
-    //console.log(data)
-    return (data)
+    return this.firestore.collection('menu').snapshotChanges();
   }
   
-
   toggleServed(order){
     // console.log("Served is yet to be fixed!")
     // console.log(order)

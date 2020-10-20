@@ -1,7 +1,21 @@
 
-<ion-list *ngFor="let item of items" (click)="handleClick($event)">
-  <ion-item >{{item.item}}</ion-item>
-  <ion-item >{{item.price}}</ion-item>
+<h2>Welcome to {{name}}</h2>
+<h4>{{address}}</h4>
+
+<h6>Food Menu</h6>
+<ion-list *ngFor="let item of foodItems">
+  <ion-item >{{item[0]}}</ion-item>
+  <ion-item >${{item[1]}}</ion-item>
+  <ion-item >{{item[2]}}</ion-item>
+  <ion-label>Add to order?</ion-label>
+  <ion-toggle slot="end"></ion-toggle>
+</ion-list>
+
+<h6>Drink Menu</h6>
+<ion-list *ngFor="let item of drinkItems">
+  <ion-item >{{item[0]}}</ion-item>
+  <ion-item >${{item[1]}}</ion-item>
+  <ion-item >{{item[2]}}</ion-item>
   <ion-label>Add to order?</ion-label>
   <ion-toggle slot="end"></ion-toggle>
 </ion-list>
