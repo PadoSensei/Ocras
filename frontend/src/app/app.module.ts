@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 
 import { environment } from "src/environments/environment";
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,7 +26,8 @@ import { environment } from "src/environments/environment";
     IonicModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+ 
   ],
   providers: [
     StatusBar,

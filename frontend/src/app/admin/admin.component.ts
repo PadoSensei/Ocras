@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CrudService } from "../crud.service";
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 
 @Component({
   selector: "app-admin",
@@ -10,6 +11,11 @@ export class AdminComponent implements OnInit {
   constructor(private crudService: CrudService) {}
 
   ngOnInit() {}
+
+  qrElementType; 
+  qrCorrectionLevel; 
+  qrValue;
+  qrValues = [];
 
   name;
   address;
@@ -22,7 +28,6 @@ export class AdminComponent implements OnInit {
   drinkItems = [];
   foodDBItems = [];
   drinkDBItems = [];
-  menuItems = [];
 
   addItem = (item) => {
     const removed = [...item];
@@ -38,7 +43,6 @@ export class AdminComponent implements OnInit {
   }
  
   removeItem = (item) => {
-    console.log('remove', item)
     if (item[3] === "food") {
       let foodIndex = this.foodItems.indexOf(item);
       if (foodIndex > -1) {
@@ -65,7 +69,14 @@ export class AdminComponent implements OnInit {
     this.crudService.menuForm.value.foodItems = this.foodDBItems;
     
     let data = this.crudService.menuForm.value;
-    this.crudService.createMenu(data).then(res => {  
+    this.crudService.createMenu(data).then(res => { 
+      for (let i = 1; i <= res; i++) {
+        this.qrElementType = NgxQrcodeElementTypes.URL;
+        this.qrCorrectionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+        this.qrValue = `${i}`;
+        this.qrValues.push(this.qrValue);
+        console.log(this.qrValues)
+      }
     })
     this.foodItems = [];
     this.drinkItems = [];
