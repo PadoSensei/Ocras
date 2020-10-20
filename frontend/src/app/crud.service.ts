@@ -49,11 +49,7 @@ export class CrudService {
     }
     }
     addOrderWithId(data);
-    // return new Promise<any>((resolve, reject) =>{
-    //   this.firestore
-    //     .collection('orders')
-    //     .add(data)
-    //     .then(res => {}, err => reject(err));
+    
     };
   
 
@@ -101,13 +97,26 @@ export class CrudService {
   }
   
 
-  toggleServed(){
-    console.log("Served is yet to be fixed!")
+  toggleServed(order){
+    // console.log("Served is yet to be fixed!")
+    // console.log(order)
+    return this.firestore
+      .doc('orders/' + order.id)
+      .update({ isServed: true })
+  }
+
+  togglePaid(order){
+    // console.log("Served is yet to be fixed!")
+    // console.log(order)
+    return this.firestore
+      .doc('orders/' + order.id)
+      .update({ isPaid: true })
   }
 
 }
 
 
+// Delete below
 
 //   // return new Promise<any>((resolve, reject) =>{
 //   //   this.firestore
@@ -141,3 +150,8 @@ export class CrudService {
 //     // The document probably doesn't exist.
 //     console.error("Error updating document: ", error);
 // });
+// return new Promise<any>((resolve, reject) =>{
+    //   this.firestore
+    //     .collection('orders')
+    //     .add(data)
+    //     .then(res => {}, err => reject(err));

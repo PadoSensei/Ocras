@@ -7,5 +7,5 @@
   <ion-label> Drinks: {{ order.drinkOrder }} </ion-label>
   
   <ion-label> isPaid?: {{ order.isPaid }} </ion-label>
-  <ion-button> Paid!! </ion-button>
+  <ion-button (click)="togglePaid(order)"> Paid!! </ion-button>
 </ion-item>
