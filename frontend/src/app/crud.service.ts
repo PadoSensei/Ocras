@@ -52,22 +52,6 @@ export class CrudService {
     
     };
   
-
-  // async addDocIDtoCreatedOrder() {
-  
-  //   let docRef = this.firestore.collection('orders').add({"title": 42});
-  //   console.log(docRef)
-  //   try {
-  //     const docAdded = await docRef;
-  //     console.log(docAdded.id);
-  //     this.firestore.doc('orders/' + docAdded.id).update({ id: docAdded.id });
-  //     return docRef;
-  //   }
-  //   catch (err) {
-  //     return err;
-  //   }
-  // }
-
   // gets all orders in db
   getOrders() {
     const data = this.firestore.collection("orders").snapshotChanges();
@@ -94,7 +78,7 @@ export class CrudService {
 
   getMenu() {
     const data = this.firestore.collection('menu').snapshotChanges();
-    console.log(data)
+    //console.log(data)
     return (data)
   }
   
