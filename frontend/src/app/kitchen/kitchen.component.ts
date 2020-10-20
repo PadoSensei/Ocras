@@ -21,7 +21,7 @@ export class KitchenComponent implements OnInit {
     this.crudService.getOrders()
         .subscribe(res => {
         this.orders = res.map((snapshot) => (snapshot.payload.doc.data()));
-        console.log(this.orders)
+        this.orders = this.orders.filter(order => order.isServed === false)
   })
   }
   

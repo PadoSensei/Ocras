@@ -1,5 +1,6 @@
 
 <ion-item *ngFor="let order of orders">
+  
   <ion-label> Table: {{ order.tableNum }} </ion-label>
   
   <ion-label>  Food: {{ order.foodOrder }} </ion-label>
@@ -8,4 +9,5 @@
   
   <ion-label> isPaid?: {{ order.isPaid }} </ion-label>
   <ion-button (click)="togglePaid(order)"> Paid!! </ion-button>
+  
 </ion-item>

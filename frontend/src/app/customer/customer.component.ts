@@ -34,17 +34,17 @@ export class CustomerComponent implements OnInit {
 
   // this is where selected items are pushed
   selectedItems = [];
-
+  
   constructor(private crudService: CrudService) { }
 
   ngOnInit() {
-    
     this.getMenu();
   }
 
   // I'm still not entirely sure why this works. - P
   orders
   menu
+  
   
   // Not needed by this part of the app.
   // getOrders = () => {
