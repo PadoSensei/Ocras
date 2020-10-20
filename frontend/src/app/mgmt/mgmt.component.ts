@@ -19,13 +19,13 @@ export class MgmtComponent implements OnInit {
     this.crudService.getOrders()
         .subscribe(res => {
         this.orders = res.map((snapshot) => (snapshot.payload.doc.data()));
-        console.log(this.orders)
-  })
+        this.orders = this.orders.filter(order => order.isPaid === false)
+   })
   }
   
   // Sets isPaid to 'true' on MGMT screen.
   togglePaid = (order) => {
-    
     this.crudService.togglePaid(order)
   }
+  
 }
