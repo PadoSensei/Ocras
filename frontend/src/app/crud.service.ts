@@ -75,7 +75,7 @@ export class CrudService {
   }
 
   createMenu(data) {
-    console.log('after', data)
+    // console.log('after', data)
     const menuData = {
       name: data.name,
       address: data.address,
@@ -86,7 +86,9 @@ export class CrudService {
     return this.firestore
       .collection("menu")
       .add(menuData)
-      .then(res => {}, err => console.error(err));
+      .then(res => {
+        return menuData.tables;
+      }, err => console.error(err));
   }
 
 
