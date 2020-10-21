@@ -1,38 +1,8 @@
-// Commmented out Mykhailo's great CSS work
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
-// ​
-// li {
-//   list-style: none;
-//   padding: 15px 30px;
-//   background-color: rgba(195, 115, 90, 0.836);
-//   margin-bottom: 8%;
-//   border-radius: 12px;
-// ​
-//   // -webkit-box-shadow: 10px 10px 20px -2px rgba(150,150,147,1);
-//   // -moz-box-shadow: 10px 10px 20px -2px rgba(150,150,147,1);
-//   // box-shadow: 10px 10px 20px -2px rgba(150,150,147,1);
-//   // transition: all 0.15s;
-// }
-// ​
-// li:hover {
-//   transform: scale(1.05);
-//   background-color: rgba(219, 188, 84, 0.979);
-// }
-// ​
-// .food {
-//   font-family: 'Cinzel', serif;
-//   color: rgb(245, 246, 216);
-//   font-size: 32px;
-//   margin-bottom: 2%;
-// }
-// ​
-// .price {
-//   color: antiquewhite;
-//   font-size: 20px;
-//   font-family: 'Amatic SC', cursive;
-// }
+@import url('https://fonts.googleapis.com/css2?family=Lemonada&display=swap');
+
 
 .d-menu-container {
   width: 100%;
@@ -40,6 +10,34 @@
   margin: 0 auto;
   margin-top: 4%;
   padding: 8px;
+}
+
+h2 {
+  color:  rgba(61, 4, 51, 0.979);
+  font-size: 3rem;
+  font-family: 'Amatic SC', cursive;
+  margin-bottom: -4%;
+}
+
+h3 {
+  color:  rgba(61, 4, 51, 0.979);
+  font-size: 36px;
+  font-family: 'Cinzel', serif;
+  margin-bottom: 0;
+  margin-left: -10%;
+}
+
+h4 {
+  color:  rgba(61, 4, 51, 0.979);
+  font-size: 24px;
+  font-family: 'Amatic SC', cursive;
+}
+
+h6 {
+  font-family: 'Cinzel', serif;
+  font-size: larger;
+  margin-left: -10%;
+  color: rgba(61, 4, 51, 0.979);;
 }
 
 .d-menu-item {
@@ -57,6 +55,9 @@
 .d-menu-item:hover {
     transform: scale(1.05);
     background-color: rgba(219, 188, 84, 0.979);
+    -webkit-box-shadow: 10px 10px 24px -4px rgba(255,170,0,0.55);
+-moz-box-shadow: 10px 10px 24px -4px rgba(255,170,0,0.55);
+box-shadow: 10px 10px 24px -4px rgba(255,170,0,0.55);
 }
 
 .d-food {
@@ -68,7 +69,92 @@
 
 .d-dollars {
   color: antiquewhite;
-  font-size: 20px;
+  font-size: 22px;
   font-family: 'Amatic SC', cursive;
 }
 
+.d-description {
+  color: rgb(245, 237, 226);
+  font-size: 26px;
+  font-family: 'Amatic SC', cursive;
+}
+
+.order {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.d-ordered-item {
+  margin: 0;
+  width: 49%;
+  color:  rgba(61, 4, 51, 0.979);
+  font-size: 26px;
+  font-family: 'Lemonada', cursive;
+}  
+p {
+  margin: 0;
+}
+
+.total {
+  width: 90%;
+  text-align: center;
+  padding-left: 5%;
+  color:  rgba(61, 4, 51, 0.979);
+  font-size: 26px;
+  font-family: 'Lemonada', cursive;
+}
+
+.submit {
+  border: none;
+  padding: 5% 8%;
+  border-radius: 23px;
+  background-color: #88bbe7;
+  font-family: 'Cinzel', serif;
+  color: rgb(245, 246, 216);
+  font-size: 32px;
+  margin: 30px auto;
+  width: 60%;
+  transition: all 0.2s;
+}
+
+.submit:hover {
+  background-color: #a9d2f7;
+  -webkit-box-shadow: 10px 10px 24px -4px rgba(0,174,255,0.53);
+-moz-box-shadow: 10px 10px 24px -4px rgba(0,174,255,0.53);
+box-shadow: 10px 10px 24px -4px rgba(0,174,255,0.53);
+}
+
+@media only screen and (max-width: 890px) {
+  .d-menu-container {
+    width: 90%;
+  }
+  
+  h2 {
+    font-size: 2.8rem;
+  }
+  
+  h3 {
+    font-size: 32px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  
+  h4 {
+    font-size: 24px;
+  }
+  
+  h6 {
+    font-size: 1.5rem;
+    margin-left: -2%;
+    margin-bottom: 10px;
+
+  }
+  
+  .d-ordered-item {
+    font-size: 20px;
+    font-family: 'Lemonada', cursive;
+  }  
+
+}
