@@ -32,7 +32,8 @@ export class CustomerComponent implements OnInit {
       isServed: false, 
       foodOrder: [],
       drinkOrder: [],
-      timeOfOrder: Date()
+      timeOfOrder: Date(),
+      bill: 0
   }
 
   // Three arrays will be added to the data, 
@@ -42,7 +43,7 @@ export class CustomerComponent implements OnInit {
   drinkSelection = []
   pricesOfSelected = []
 
-  //
+  // Identify if the item is food or drink by placing them here for easy comparison.
   simpleFoodArray = []
   simpleDrinkArray = []
   
@@ -70,7 +71,7 @@ export class CustomerComponent implements OnInit {
   
   createNewOrders(data): void {
     const orders = this.crudService.createNewOrder(data);
-    //console.log(orders)
+    
   }
 
   
@@ -87,9 +88,12 @@ export class CustomerComponent implements OnInit {
     this.pricesOfSelected.push(selectedItemPrice)
     event.currentTarget.style.backgroundColor = '#abcdeb';
     event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
-    console.log(this.drinkSelection)
-    console.log(this.foodSelection)
-    console.log(this.pricesOfSelected)
+    let clicked = event.currentTarget.childNodes[0].childNodes[0].textContent;
+    this.selectedItems.push(clicked);
+    event.currentTarget.style.backgroundColor = '#abcdeb';
+    event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-4vw)`;
+    this.total += Number(event.currentTarget.childNodes[1].childNodes[0].textContent.slice(1,4))
+    
   }
 
   // Create simple array of food that can quickly be checked. 
@@ -104,12 +108,6 @@ export class CustomerComponent implements OnInit {
       this.simpleDrinkArray.push(element[0])
     })
     
-    let clicked = event.currentTarget.childNodes[0].childNodes[0].textContent;
-    this.selectedItems.push(clicked);
-    event.currentTarget.style.backgroundColor = '#abcdeb';
-    event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-4vw)`;
-    this.total += Number(event.currentTarget.childNodes[1].childNodes[0].textContent.slice(1,4))
-
   }
 
   sendItem(selected) {
@@ -124,10 +122,20 @@ export class CustomerComponent implements OnInit {
     }
 
   // On Submit Button being clicked, will organise data for DB push and push to DB   
-  submmitButtonAction(){
-
+  submitButtonAction(){
+    // data prepped
+    this.data = {
+      tableNum: 7, // set to QR route
+          isPaid: false, 
+          isServed: false, 
+          foodOrder: [...this.foodSelection],
+          drinkOrder: [...this.drinkSelection],
+          timeOfOrder: Date(),
+          bill: this.total
+      }
+    this.createNewOrders(this.data)
+    console.log("I think we just sent an order to the kitchen!!")
   }
-
 
 }
 
