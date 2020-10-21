@@ -11,7 +11,7 @@
 
 <ion-card *ngFor="let order of orders">
   <ion-card-header>
-    <ion-card-subtitle>Time</ion-card-subtitle>
+    <ion-card-subtitle>Ordered at {{ order.timeOfOrder }} </ion-card-subtitle>
     <ion-card-title>Table: {{ order.tableNum }} </ion-card-title>
   </ion-card-header>
 
