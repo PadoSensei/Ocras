@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CrudService } from '../crud.service'
 
 @Component({
@@ -7,17 +8,23 @@ import { CrudService } from '../crud.service'
   styleUrls: ['./customer.component.scss'],
 })
 export class CustomerComponent implements OnInit {
-  constructor(private crudService: CrudService) { }
+  constructor(
+    private crudService: CrudService,
+    private route: ActivatedRoute
+    ) { }
+
+  
+  pewpew: string;
 
   ngOnInit() {
     let backgr = document.querySelector('#background-content')
     //console.log(backgr);
     this.getMenu();
     // Below will send hardcoded table into db on page load.
-    this.createNewOrders(this.data)
+    // this.createNewOrders(this.data)
+    this.pewpew = this.route.snapshot.paramMap.get('pewpew');
+    console.log('!!!', this.pewpew)
   }
-
-  test;
   name;
   address;
   foodItems = [];
@@ -59,8 +66,8 @@ export class CustomerComponent implements OnInit {
 
 
   addItem = (item) => {
-    console.log('event', item);
-    console.log('item', this.test);
+    // console.log('event', item);
+    // console.log('item', this.test);
   }
 
   handleClick(event): void {
