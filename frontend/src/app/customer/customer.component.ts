@@ -64,8 +64,5 @@ export class CustomerComponent implements OnInit {
     event.currentTarget.style.backgroundColor = '#abcdeb';
     event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-4vw)`;
     this.total += Number(event.currentTarget.childNodes[1].childNodes[0].textContent.slice(1,4))
-    // console.log(event.currentTarget.childNodes[1].childNodes[0]);
-    console.log(event.currentTarget.childNodes[0].childNodes[0]);
-    console.log(this.selectedItems);
   }
 }
