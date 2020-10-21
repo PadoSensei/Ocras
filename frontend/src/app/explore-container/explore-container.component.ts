@@ -25,10 +25,10 @@ export class ExploreContainerComponent implements OnInit {
   })
   }
   
-  createNewOrders(): void {
-    const orders = this.crudService.createNewOrder();
-    console.log(orders)
-  }
+  // createNewOrders(): void {
+  //   const orders = this.crudService.createNewOrder();
+  //   console.log(orders)
+  // }
 
 }
 
