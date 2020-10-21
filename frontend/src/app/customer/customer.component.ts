@@ -57,25 +57,17 @@ export class CustomerComponent implements OnInit {
     //console.log(orders)
   }
 
-<<<<<<< HEAD
+
   addItem = (item) => {
     console.log('event', item);
     console.log('item', this.test);
   }
-  //Not required
-  // handleClick(event): void {
-  //   this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
-  //   event.currentTarget.style.backgroundColor = '#abcdeb';
-  //   event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
-  //   console.log(event.currentTarget.childNodes[0].childNodes[0]);
-  // }
-=======
-  
+
   handleClick(event): void {
     this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
     event.currentTarget.style.backgroundColor = '#abcdeb';
     event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
     console.log(event.currentTarget.childNodes[0].childNodes[0]);
   }
->>>>>>> origin
+
 }
