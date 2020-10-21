@@ -13,13 +13,14 @@ export class CustomerComponent implements OnInit {
     let backgr = document.querySelector('#background-content')
     //console.log(backgr);
     this.getMenu();
-    
+ 
     // Below will send hardcoded table into db on page load.
     //this.createNewOrders(this.data)
   }
 
   name;
   address;
+  total = 0;
   foodItems = [];
   drinkItems = [];
   selectedItems = [];
@@ -74,6 +75,7 @@ export class CustomerComponent implements OnInit {
 
   
   handleClick(event): void {
+
     const selectedItemName = event.currentTarget.childNodes[0].childNodes[0].textContent
     const selectedItemPrice = event.currentTarget.childNodes[1].childNodes[0].textContent
     
@@ -101,6 +103,13 @@ export class CustomerComponent implements OnInit {
     this.drinkItems.forEach(element => {
       this.simpleDrinkArray.push(element[0])
     })
+    
+    let clicked = event.currentTarget.childNodes[0].childNodes[0].textContent;
+    this.selectedItems.push(clicked);
+    event.currentTarget.style.backgroundColor = '#abcdeb';
+    event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-4vw)`;
+    this.total += Number(event.currentTarget.childNodes[1].childNodes[0].textContent.slice(1,4))
+
   }
 
   sendItem(selected) {

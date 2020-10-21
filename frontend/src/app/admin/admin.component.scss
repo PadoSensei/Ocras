@@ -3,7 +3,11 @@
 *{
   color: rgb(77, 66, 53);
   font-family: 'Cinzel', serif;
+}
 
+.admin-container {
+  height: 100%;
+  overflow-y: scroll !important;
 }
 
 button {
@@ -23,4 +27,13 @@ ion-item {
   width: 96%;
   border-radius: 12px;
   margin-bottom: 0;
+}
+
+.qrList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.qrItem {
+  max-width: 200px;
 }

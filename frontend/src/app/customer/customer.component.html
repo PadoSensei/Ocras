@@ -20,5 +20,15 @@
     <div class="d-dollars">${{item[1]}}</div>
     <div class="d-description">{{item[2]}}</div>
   </div>
+
+  <h3>Your order:</h3>
+  <div class="order">
+    <span class="d-ordered-item" *ngFor="let item of selectedItems">
+      <p>{{item}}</p>
+    </span>
+    <div class="total">Your total is: ${{total}}</div>
+    <button class="submit">SUBMIT</button>
+  </div>
+
 </div>
 
