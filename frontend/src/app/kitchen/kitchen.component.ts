@@ -25,10 +25,11 @@ export class KitchenComponent implements OnInit {
   })
   }
   
-  createNewOrders(): void {
-    const orders = this.crudService.createNewOrder();
-    console.log(orders)
-  }
+  // NOT NEEDED FUNCTIONALITY
+  // createNewOrders(): void {
+  //   const orders = this.crudService.createNewOrder();
+  //   console.log(orders)
+  // }
 
   toggleServed = (order) => {
     //console.log("marked log", 'order.id')

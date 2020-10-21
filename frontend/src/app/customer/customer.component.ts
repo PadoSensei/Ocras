@@ -10,7 +10,11 @@ export class CustomerComponent implements OnInit {
   constructor(private crudService: CrudService) { }
 
   ngOnInit() {
+    let backgr = document.querySelector('#background-content')
+    //console.log(backgr);
     this.getMenu();
+    // Below will send hardcoded table into db on page load.
+    this.createNewOrders(this.data)
   }
 
   test;
@@ -20,7 +24,17 @@ export class CustomerComponent implements OnInit {
   drinkItems = [];
   selectedItems = [];
   menuItems = [];
-  
+
+  data = {
+  tableNum: 4,
+      isPaid: false, 
+      isServed: false, 
+      foodOrder: ['BLT', 'Pop tarts', "ice-cream"],
+      drinkOrder: ['coffee', 'more whiskey'],
+      timeOfOrder: Date()
+  }
+
+
   getMenu = () => {
     this.crudService.getMenu()
       .subscribe(res => {
@@ -38,11 +52,12 @@ export class CustomerComponent implements OnInit {
     })
   }
   
-  createNewOrders(): void {
-    const orders = this.crudService.createNewOrder();
-    console.log(orders)
+  createNewOrders(data): void {
+    const orders = this.crudService.createNewOrder(data);
+    //console.log(orders)
   }
 
+<<<<<<< HEAD
   addItem = (item) => {
     console.log('event', item);
     console.log('item', this.test);
@@ -54,4 +69,13 @@ export class CustomerComponent implements OnInit {
   //   event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
   //   console.log(event.currentTarget.childNodes[0].childNodes[0]);
   // }
+=======
+  
+  handleClick(event): void {
+    this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
+    event.currentTarget.style.backgroundColor = '#abcdeb';
+    event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
+    console.log(event.currentTarget.childNodes[0].childNodes[0]);
+  }
+>>>>>>> origin
 }

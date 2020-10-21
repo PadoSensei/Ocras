@@ -1,3 +1,9 @@
+<div class="d-menu-container">
+  <div class="d-menu-item" *ngFor="let item of items" (click)="handleClick($event)">
+    <div class="d-food">{{item.item}}</div>
+    <div class="d-dollars">{{item.price}}</div>
+  </div>
+</div>
 
 <h2>Welcome to {{name}}</h2>
 <h4>{{address}}</h4>
@@ -19,4 +25,5 @@
   <ion-label>Add to order?</ion-label>
   <ion-toggle (ionChange)="addItem(item)" [checked]="value" slot="end"></ion-toggle>
 </ion-list>
+
 
