@@ -11,8 +11,10 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit() {
     let backgr = document.querySelector('#background-content')
-    console.log(backgr);
+    //console.log(backgr);
     this.getMenu();
+    // Below will send hardcoded table into db on page load.
+    this.createNewOrders(this.data)
   }
 
   name;
@@ -21,7 +23,17 @@ export class CustomerComponent implements OnInit {
   drinkItems = [];
   selectedItems = [];
   menuItems = [];
-  
+
+  data = {
+  tableNum: 4,
+      isPaid: false, 
+      isServed: false, 
+      foodOrder: ['BLT', 'Pop tarts', "ice-cream"],
+      drinkOrder: ['coffee', 'more whiskey'],
+      timeOfOrder: Date()
+  }
+
+
   getMenu = () => {
     this.crudService.getMenu()
       .subscribe(res => {
@@ -39,12 +51,12 @@ export class CustomerComponent implements OnInit {
     })
   }
   
-  createNewOrders(): void {
-    const orders = this.crudService.createNewOrder();
-    console.log(orders)
+  createNewOrders(data): void {
+    const orders = this.crudService.createNewOrder(data);
+    //console.log(orders)
   }
 
-  //Not required
+  
   handleClick(event): void {
     this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
     event.currentTarget.style.backgroundColor = '#abcdeb';

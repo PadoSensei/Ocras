@@ -26,14 +26,15 @@ export class CrudService {
   })
   //Firestore CRUD actions 
   // create new order in db
-  createNewOrder() {
-    const data = {
-      tableNum: 11,
-      isPaid: false, 
-      isServed: false, 
-      foodOrder: ['BLT', 'Irish stew', "ice-cream"],
-      drinkOrder: ['coffee', 'more whiskey']
-    }
+  createNewOrder(data) {
+    //const data = {
+      //Add date?
+      // tableNum: 11,
+      // isPaid: false, 
+      // isServed: false, 
+      // foodOrder: ['BLT', 'Irish stew', "ice-cream"],
+      // drinkOrder: ['coffee', 'more whiskey']
+   // }
 
     const addOrderWithId = async (data) => {
       let docRef = this.firestore.collection('orders').add(data);
@@ -42,6 +43,7 @@ export class CrudService {
       const docAdded = await docRef;
       console.log(docAdded.id);
       this.firestore.doc('orders/' + docAdded.id).update({ id: docAdded.id });
+      console.log("Order added!")
       return docRef;
     }
     catch (err) {
@@ -80,16 +82,13 @@ export class CrudService {
   }
   
   toggleServed(order){
-    // console.log("Served is yet to be fixed!")
-    // console.log(order)
+
     return this.firestore
       .doc('orders/' + order.id)
       .update({ isServed: true })
   }
 
   togglePaid(order){
-    // console.log("Served is yet to be fixed!")
-    // console.log(order)
     return this.firestore
       .doc('orders/' + order.id)
       .update({ isPaid: true })

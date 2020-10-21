@@ -1,14 +1,14 @@
 
 <ion-card *ngFor="let order of orders">
   <ion-card-header>
-    <ion-card-subtitle>Time</ion-card-subtitle>
+    <ion-card-subtitle>Ordered at {{ order.timeOfOrder }} </ion-card-subtitle>
     <ion-card-title>Table: {{ order.tableNum }} </ion-card-title>
   </ion-card-header>
 
   <ion-item>
     <ion-icon name="pin" slot="start"></ion-icon>
     <ion-label>Total Bill: </ion-label>
-    <ion-button fill="outline" slot="end">Paid!!</ion-button>
+    <ion-button (click)="togglePaid(order)" fill="outline" slot="end">Paid!!</ion-button>
   </ion-item>
 
   <ion-card-subtitle>Food</ion-card-subtitle>
