@@ -14,11 +14,12 @@ export class CustomerComponent implements OnInit {
     //console.log(backgr);
     this.getMenu();
     // Below will send hardcoded table into db on page load.
-    this.createNewOrders(this.data)
+    // this.createNewOrders(this.data)
   }
 
   name;
   address;
+  total = 0;
   foodItems = [];
   drinkItems = [];
   selectedItems = [];
@@ -58,9 +59,10 @@ export class CustomerComponent implements OnInit {
 
   
   handleClick(event): void {
-    this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
+    let clicked = event.currentTarget.childNodes[0].childNodes[0].textContent;
+    this.selectedItems.push(clicked);
     event.currentTarget.style.backgroundColor = '#abcdeb';
-    event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-15%)`;
-    console.log(event.currentTarget.childNodes[0].childNodes[0]);
+    event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-4vw)`;
+    this.total += Number(event.currentTarget.childNodes[1].childNodes[0].textContent.slice(1,4))
   }
 }
