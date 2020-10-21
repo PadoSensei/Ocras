@@ -4,11 +4,11 @@
 
 <h6>Food Menu</h6>
 <ion-list *ngFor="let item of foodItems">
-  <ion-item >{{item[0]}}</ion-item>
+  <ion-input >{{item[0]}}</ion-input>
   <ion-item >${{item[1]}}</ion-item>
   <ion-item >{{item[2]}}</ion-item>
   <ion-label>Add to order?</ion-label>
-  <ion-toggle checked slot="end"></ion-toggle>
+  <ion-toggle [(ngModel)]="item" (ionChange)="addItem(item)" slot="end"></ion-toggle>
 </ion-list>
 
 <h6>Drink Menu</h6>
@@ -17,6 +17,6 @@
   <ion-item >${{item[1]}}</ion-item>
   <ion-item >{{item[2]}}</ion-item>
   <ion-label>Add to order?</ion-label>
-  <ion-toggle checked slot="end"></ion-toggle>
+  <ion-toggle (ionChange)="addItem(item)" [checked]="value" slot="end"></ion-toggle>
 </ion-list>
 

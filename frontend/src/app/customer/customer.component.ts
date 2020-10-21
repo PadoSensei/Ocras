@@ -13,6 +13,7 @@ export class CustomerComponent implements OnInit {
     this.getMenu();
   }
 
+  test;
   name;
   address;
   foodItems = [];
@@ -42,6 +43,10 @@ export class CustomerComponent implements OnInit {
     console.log(orders)
   }
 
+  addItem = (item) => {
+    console.log('event', item);
+    console.log('item', this.test);
+  }
   //Not required
   // handleClick(event): void {
   //   this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
