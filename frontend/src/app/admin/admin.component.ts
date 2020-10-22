@@ -75,7 +75,6 @@ export class AdminComponent implements OnInit {
         this.qrCorrectionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
         this.qrValue = `https://p-angular-cb7fc.web.app/tabs/table/${i}`;
         this.qrValues.push(this.qrValue);
-        console.log(this.qrValues)
       }
     })
     this.foodItems = [];
