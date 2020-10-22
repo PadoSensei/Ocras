@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,14 +6,17 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']
 })
-export class TabsPage implements OnInit {
+export class TabsPage {
 
   constructor(private route: ActivatedRoute) {}
   
   pewpew;
-  ngOnInit() {
-    this.pewpew = this.route.snapshot.paramMap.get('pewpew')
-    console.log('????', this.pewpew)
+
+  test = () => {
+    // this.pewpew = this.route.routerState.snapshot.url
+    console.log('local', this.pewpew)
+    console.log('far', this.route.snapshot.paramMap)
   }
+ 
 
 }
