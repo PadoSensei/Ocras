@@ -32,7 +32,7 @@ export class CustomerComponent implements OnInit {
   menuItems = [];
 
   data = {
-  tableNum: 4,
+  tableNum: this.pewpew,
       isPaid: false, 
       isServed: false, 
       foodOrder: [],
