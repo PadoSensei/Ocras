@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CrudService } from '../crud.service'
 
+let pewpew;
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -14,15 +15,15 @@ export class CustomerComponent implements OnInit {
     ) { }
 
   
-  pewpew: string;
-
-  ngOnInit() {
-    let backgr = document.querySelector('#background-content')
-    //console.log(backgr);
-    this.getMenu();
-    this.pewpew = this.route.snapshot.paramMap.get('pewpew');
-
-  }
+    
+    ngOnInit() {
+      let backgr = document.querySelector('#background-content')
+      //console.log(backgr);
+      this.getMenu();
+      pewpew = this.route.snapshot.paramMap.get('pewpew');
+      
+    }
+    
   name;
   address;
   total = 0;
@@ -32,7 +33,7 @@ export class CustomerComponent implements OnInit {
   menuItems = [];
 
   data = {
-  tableNum: 4,
+  tableNum: pewpew,
       isPaid: false, 
       isServed: false, 
       foodOrder: [],
@@ -135,7 +136,7 @@ export class CustomerComponent implements OnInit {
   submitButtonAction(){
     // data prepped
     this.data = {
-      tableNum: 7, // set to QR route
+      tableNum: pewpew, // set to QR route
           isPaid: false, 
           isServed: false, 
           foodOrder: [...this.foodSelection],
