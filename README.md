@@ -1,6 +1,6 @@
 <h3 align="center"><img src="./frontend/Ocras_logo.gif" alt="Ocras_logo"/></h3>
 
-<h3 align="left">An app made for restaurants and customers. This app allows you to acces restaurant menu, order and add comments by just a scanning QR-code! </h3>
+<h3 align="left">An app made for restaurants and customers. This app allows you to access restaurant menu, order and add comments by just a scanning QR-code! </h3>
 
 <h2>Installation:</h2>
 
