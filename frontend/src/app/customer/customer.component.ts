@@ -23,7 +23,8 @@ export class CustomerComponent implements OnInit {
       pewpew = this.route.snapshot.paramMap.get('pewpew');
       
     }
-    
+  
+  disableButton;
   name;
   address;
   total = 0;
@@ -136,6 +137,8 @@ export class CustomerComponent implements OnInit {
           bill: this.total
       }
     this.createNewOrders(this.data)
+    alert("Order placed!")
+    this.disableButton = true;
     console.log("I think we just sent an order to the kitchen!!")
   }
 

@@ -23,7 +23,8 @@
       <p>{{item}}</p>
     </span>
     <div class="total">Your total is: ${{total}}</div>
-    <button id="submitButton" (click)="submitButtonAction()" [disabled]="click" class="submit">SUBMIT</button>
+    <button (click)="submitButtonAction()" [disabled]="disableButton "class="submit">SUBMIT</button>
+
   </div>
 </div>
 
