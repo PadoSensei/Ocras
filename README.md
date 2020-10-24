@@ -12,3 +12,5 @@ To deploy an app run
 
 and use your hosting public folder to deploy an app.
 
+<h2>Enjoy</h2>
+
