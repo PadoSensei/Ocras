@@ -1,3 +1,4 @@
+// tslint:disable
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CrudService } from '../crud.service'
@@ -18,7 +19,6 @@ export class CustomerComponent implements OnInit {
     
     ngOnInit() {
       let backgr = document.querySelector('#background-content')
-      //console.log(backgr);
       this.getMenu();
       pewpew = this.route.snapshot.paramMap.get('pewpew');
       
@@ -78,22 +78,12 @@ export class CustomerComponent implements OnInit {
   
   createNewOrders(data): void {
     const orders = this.crudService.createNewOrder(data);
-    
-  }
-
-
-  addItem = (item) => {
-    // console.log('event', item);
-    // console.log('item', this.test);
   }
 
   handleClick(event): void {
 
     const selectedItemName = event.currentTarget.childNodes[0].childNodes[0].textContent
     const selectedItemPrice = event.currentTarget.childNodes[1].childNodes[0].textContent
-    
-    //this.selectedItems.push(event.currentTarget.childNodes[0].childNodes[0].innerHTML);
-    // Push selected to either drinks or food array. SENDITEM
     
     this.sendItem(selectedItemName)
     // Push selected price to price array
@@ -105,6 +95,7 @@ export class CustomerComponent implements OnInit {
     event.currentTarget.style.backgroundColor = '#abcdeb';
     event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-4vw)`;
     this.total += Number(event.currentTarget.childNodes[1].childNodes[0].textContent.slice(1,4))
+    
     
   }
 
