@@ -4,5 +4,11 @@
 
 <h2>Installation:</h2>
 
-> NPM I
+> NPM Install
+
+To deploy an app run
+
+>Ionic build
+
+and use your hosting public folder to deploy an app.
 
