@@ -1,6 +1,6 @@
 <div class="admin-container">
   <ion-title>
-    <div class="ion-text-uppercase ion-text-center">
+    <div class="ion-text-center">
       <h4>Ocras Menu Form</h4>
     </div>
   </ion-title>
@@ -40,25 +40,25 @@
       </ion-item>
     </form>
   
-    <button class="waves-effect waves-light btn col s12" (click)="addItem([item, price, description, type])">
+    <button class="waves-effect waves-light btn col s12" (click)="addItem({item: item, price: price, description: description, type: type})">
       Add
     </button>
   
     <ion-list class="collection">
       <h6>Food Items:</h6>
       <ion-item *ngFor="let food of foodItems">
-        <ion-label class="col s11"> Item: {{ food[0] }} </ion-label>
-        <ion-label class="col s11"> Price: ${{ food[1] }} </ion-label>
-        <ion-label class="col s11"> Description: {{ food[2] }} </ion-label>
+        <ion-label class="col s11"> Item: {{ food.item }} </ion-label>
+        <ion-label class="col s11"> Price: ${{ food.price }} </ion-label>
+        <ion-label class="col s11"> Description: {{ food.description }} </ion-label>
         <ion-icon class="col s1" name="trash" (click)="removeItem(food)"></ion-icon>
       </ion-item>
       <h6>Drink Items:</h6>
-      <li *ngFor="let drink of drinkItems">
-        <span class="col s11"> Item: {{ drink[0] }} </span>
-        <span class="col s11"> Price: ${{ drink[1] }} </span>
-        <span class="col s11"> Description: {{ drink[2] }} </span>
+      <ion-item *ngFor="let drink of drinkItems">
+        <ion-label class="col s11"> Item: {{ drink.item }} </ion-label>
+        <ion-label class="col s11"> Price: ${{ drink.price }} </ion-label>
+        <ion-label class="col s11"> Description: {{ drink.description }} </ion-label>
         <ion-icon class="col s1" name="trash" (click)="removeItem(drink)"></ion-icon>
-      </li>
+      </ion-item>
     </ion-list>
   
     <div class="qrList">

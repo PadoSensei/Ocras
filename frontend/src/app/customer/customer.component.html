@@ -5,16 +5,16 @@
 
   <h6>Food Menu</h6>
   <div class="d-menu-item" *ngFor="let item of foodItems" (click)="handleClick($event)">
-    <div class="d-food">{{item[0]}}</div>
-    <div class="d-dollars">${{item[1]}}</div>
-    <div class="d-description">{{item[2]}}</div>
+    <div class="d-food">{{item.item}}</div>
+    <div class="d-dollars">${{item.price}}</div>
+    <div class="d-description">{{item.description}}</div>
   </div>
 
   <h6>Drink Menu</h6>
   <div class="d-menu-item" *ngFor="let item of drinkItems" (click)="handleClick($event)">
-    <div class="d-food">{{item[0]}}</div>
-    <div class="d-dollars">${{item[1]}}</div>
-    <div class="d-description">{{item[2]}}</div>
+    <div class="d-food">{{item.item}}</div>
+    <div class="d-dollars">${{item.price}}</div>
+    <div class="d-description">{{item.description}}</div>
   </div>
 
   <h3>Your order:</h3>

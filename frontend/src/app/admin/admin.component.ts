@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CrudService } from "../crud.service";
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import { Menu, MenuItem } from './menu';
 
 @Component({
   selector: "app-admin",
@@ -24,56 +25,55 @@ export class AdminComponent implements OnInit {
   price;
   description;
   type;
+  items: MenuItem[] = [];
   foodItems = [];
   drinkItems = [];
-  foodDBItems = [];
-  drinkDBItems = [];
 
-  addItem = (item) => {
-    const removed = [...item];
-    if (this.type === "food") {
-      this.foodItems.push(item);
-      this.foodDBItems.push(removed.slice(0, 3));
-    }
-    if (this.type === "drink") {
-      this.drinkItems.push(item);
-      this.drinkDBItems.push(removed.slice(0, 3));
-    }
+  addItem = (item: MenuItem) => {
+    console.log('adminitem', item)
+    if (item.type === 'food') {
+      this.foodItems.push(item)
+    } else {
+      this.drinkItems.push(item)
+    }   
+    this.items.push(item)
     this.crudService.itemForm.reset();
   }
  
-  removeItem = (item) => {
-    if (item[3] === "food") {
+  removeItem = (item: MenuItem) => {
+    if (item.type === "food") {
       let foodIndex = this.foodItems.indexOf(item);
       if (foodIndex > -1) {
         this.foodItems.splice(foodIndex, 1);
-        this.foodDBItems.splice(foodIndex, 1);
-        
       }
     }
     
-    if (item[3] === "drink") {
+    if (item.type === "drink") {
       let drinkIndex = this.drinkItems.indexOf(item);
       if (drinkIndex > -1) {
         this.drinkItems.splice(drinkIndex, 1);
-        this.drinkDBItems.splice(drinkIndex, 1);
       }
     }
   };
   
   onSubmit = () => {
-    this.crudService.menuForm.value.name = this.name;
-    this.crudService.menuForm.value.address = this.address;
-    this.crudService.menuForm.value.tables = this.tables;
-    this.crudService.menuForm.value.drinkItems = this.drinkDBItems;
-    this.crudService.menuForm.value.foodItems = this.foodDBItems;
-    
-    let data = this.crudService.menuForm.value;
-    this.crudService.createMenu(data).then(res => { 
-      for (let i = 1; i <= res; i++) {
+    const menu = {
+      restaurant: {
+        name: this.name,
+        address: this.address,
+        id: 'umgcQO3StZTMaWZyJNSw',
+      },
+      items: this.items,
+    }
+
+    const tableNum = this.tables
+
+    this.crudService.createMenu(menu).then(res => {
+       
+      for (let i = 1; i <= tableNum; i++) {
         this.qrElementType = NgxQrcodeElementTypes.URL;
         this.qrCorrectionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-        this.qrValue = `https://p-angular-cb7fc.web.app/tabs/table/${i}`;
+        this.qrValue = `https://p-angular-cb7fc.web.app/tabs/table?id=${res.id}&table=${i}`;
         this.qrValues.push(this.qrValue);
       }
     })

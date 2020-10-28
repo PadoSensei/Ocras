@@ -32,8 +32,5 @@ ion-item {
 .qrList {
   display: flex;
   flex-wrap: wrap;
-}
-
-.qrItem {
-  max-width: 200px;
+  gap: 10px;
 }

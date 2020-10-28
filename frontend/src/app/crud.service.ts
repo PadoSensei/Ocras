@@ -61,24 +61,13 @@ export class CrudService {
   }
 
   createMenu(data) {
-    // console.log('after', data)
-    const menuData = {
-      name: data.name,
-      address: data.address,
-      tables: data.tables,
-      drinkItems: data.drinkItems.flat(),
-      foodItems: data.foodItems.flat()
-    }
     return this.firestore
       .collection("menu")
-      .add(menuData)
-      .then(res => {
-        return menuData.tables;
-      }, err => console.error(err));
+      .add(data)
   }
 
-  getMenu() {
-    return this.firestore.collection('menu').snapshotChanges();
+  getMenu(id: string) {
+    return this.firestore.collection('menu').doc(id).valueChanges();
   }
   
   toggleServed(order){
