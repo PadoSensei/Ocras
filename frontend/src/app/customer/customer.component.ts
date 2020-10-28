@@ -81,7 +81,7 @@ export class CustomerComponent implements OnInit {
   }
 
   handleClick(event): void {
-
+    
     const selectedItemName = event.currentTarget.childNodes[0].childNodes[0].textContent
     const selectedItemPrice = event.currentTarget.childNodes[1].childNodes[0].textContent
     
@@ -93,8 +93,12 @@ export class CustomerComponent implements OnInit {
     let clicked = event.currentTarget.childNodes[0].childNodes[0].textContent;
     this.selectedItems.push(clicked);
     event.currentTarget.style.backgroundColor = '#abcdeb';
-    event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-4vw)`;
-    this.total += Number(event.currentTarget.childNodes[1].childNodes[0].textContent.slice(1,4))
+    event.currentTarget.style.transform = `rotate(${Math.floor(Math.random() * (4 - -4) + -4)}deg) translateX(-4vw)`;    
+
+    let current:any = Number(event.currentTarget.childNodes[1].childNodes[0].textContent.slice(1))
+    let sum = Number(Number.parseFloat(this.total + current).toFixed(2));    
+    this.total = sum
+    console.log(this.total);
     
     
   }

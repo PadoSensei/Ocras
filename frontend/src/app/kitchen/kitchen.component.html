@@ -17,17 +17,14 @@
 
   <ion-item>
     <ion-icon name="pin" slot="start"></ion-icon>
-    <ion-label>Extra Info</ion-label>
+    <ion-label></ion-label>
     <ion-button (click)="toggleServed(order)" fill="outline" slot="end">SERVE!</ion-button>
   </ion-item>
 
-  <ion-card-subtitle>Food</ion-card-subtitle>
+  <ion-card-subtitle>Order:</ion-card-subtitle>
   <ion-card-content>
     {{ order.foodOrder }}
   </ion-card-content>
-  <ion-card-subtitle>Drinks</ion-card-subtitle>
-  <ion-card-content>
-    {{ order.drinkOrder }}
-  </ion-card-content>
+  
 </ion-card>
 
