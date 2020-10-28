@@ -1,6 +1,9 @@
 <h3 align="center"><img src="./frontend/Ocras_logo.gif" alt="Ocras_logo"/></h3>
 
-<h3 align="left">An app made to connect restaurants and customers in these uncertain times. This app allows you to access a restaurant's menu and place an order just a scanning QR-code! </h3>
+<h3 align="left">An app made to connect restaurants and customers in these uncertain times. This app allows you to access a restaurant's menu and place an order just by scanning QR-code! </h3>
+
+<h3 align="left">For restaurant managers, Ocras allows you to quickly upload a menu, generate QR codes for your restaurant and easily track the resulting orders!</h3>
+
 
 <h2>Installation:</h2>
 
