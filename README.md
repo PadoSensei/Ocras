@@ -26,6 +26,7 @@ From here, you can place an order into the system, then follow the order on the 
 
 For a more complete demo, follow this link to be taken to the Admin screen of our app.
 
+<a href="https://p-angular-cb7fc.web.app/tabs/tab4">Enter your menu into Ocras</a>
 
 
 From here , a user can input their restaurant details, menu options and the number of tables in their restaurant. 
