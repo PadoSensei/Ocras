@@ -29,18 +29,18 @@ For a more complete demo, follow this link to be taken to the Admin screen of ou
 
 
 From here , a user can input their restaurant details, menu options and the number of tables in their restaurant. 
-<h2 align="center"><img src="./frontend/Admin_Grab.png" alt="Admin"/> </h2> 
+<h2 align="center"><img src="./Admin_Grab.png" alt="Admin"/> </h2> 
 
 
 Once all the details are entered, the app will generate a QR code for each table in the restaurant. Each scanned QR code will take the scanner to the restaurant's Customer Page and an order can be placed and tracked, like in the Quick Demo above.  
-<h2 align="center"><img src="./frontend/Customer_Grab.png" alt="Customer"/> </h2> 
+<h2 align="center"><img src="./Customer_Grab.png" alt="Customer"/> </h2> 
 
 After placing an order, you can then move to the Kitchen screen to see a list of orders yet to be served. Click the 'Served' button to process the order as served. This action will remove the order from the Kitchen view. You can follow the order in the MGMT section.
-<h2 align="center"><img src="./frontend/Kitchen_Grab.png" alt="Kitchen"/> </h2> 
+<h2 align="center"><img src="./Kitchen_Grab.png" alt="Kitchen"/> </h2> 
 
 
 Similar to the Kitchen screen, the MGMT screen displays unpaid orders. These can be processed as paid by clicking the 'Paid' button. Again, this action will remove the order from the MGMT screen. 
-<h2 align="center"><img src="./frontend/MGMT_Grab.png" alt="MGMT"/> </h2> 
+<h2 align="center"><img src="./MGMT_Grab.png" alt="MGMT"/> </h2> 
 
 
 <h2>Enjoy!</h2>
