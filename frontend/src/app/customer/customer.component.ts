@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CrudService } from '../crud.service'
 
-let pewpew;
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -15,13 +14,17 @@ export class CustomerComponent implements OnInit {
     ) { }
 
   
-    
+    id: string;
+    table: number = -1;
+
     ngOnInit() {
       let backgr = document.querySelector('#background-content')
       //console.log(backgr);
-      this.getMenu();
-      pewpew = this.route.snapshot.paramMap.get('pewpew');
-      
+      this.route.queryParams.subscribe(params => {
+        this.id = params.id;
+        this.table = params.table;
+        this.getMenu();
+      });     
     }
   
   disableButton;
@@ -31,16 +34,15 @@ export class CustomerComponent implements OnInit {
   foodItems = [];
   drinkItems = [];
   selectedItems = [];
-  menuItems = [];
 
   data = {
-  tableNum: pewpew,
-      isPaid: false, 
-      isServed: false, 
-      foodOrder: [],
-      drinkOrder: [],
-      timeOfOrder: Date(),
-      bill: 0
+    tableNum: this.table,
+    isPaid: false, 
+    isServed: false, 
+    foodOrder: [],
+    drinkOrder: [],
+    timeOfOrder: Date(),
+    bill: 0
   }
 
   // Three arrays will be added to the data, 
@@ -57,22 +59,18 @@ export class CustomerComponent implements OnInit {
   
 
   getMenu = () => {
-    this.crudService.getMenu()
+    this.crudService.getMenu(this.id)
       .subscribe(res => {
-      this.menuItems = res.map((snapshot) => (snapshot.payload.doc.data()));
-      this.name = this.menuItems[0].name;
-      this.address = this.menuItems[0].address;
-      
-      for (let i = 0; i < this.menuItems[0].foodItems.length; i += 3) {
-        this.foodItems.push(this.menuItems[0].foodItems.slice(i, i + 3))
-      }
+        this.name = res.restaurant.name;
+        this.address = res.restaurant.address;
 
-      for (let i = 0; i < this.menuItems[0].drinkItems.length; i += 3) {
-        this.drinkItems.push(this.menuItems[0].drinkItems.slice(i, i + 3))
+        for (let index = 0; index < res.items.length ; index++) {
+          if (res.items[index].type === 'food') {
+            this.foodItems.push(res.items[index])
+          } else {
+            this.drinkItems.push(res.items[index])   
+        }
       }
-      // Adds menu item names to respective arrays
-     this.createSimpleDrinkArray();
-     this.createSimpleFoodArray();
     })
   }
   
@@ -137,14 +135,14 @@ export class CustomerComponent implements OnInit {
   submitButtonAction(){
     // data prepped
     this.data = {
-      tableNum: pewpew, // set to QR route
-          isPaid: false, 
-          isServed: false, 
-          foodOrder: [...this.foodSelection],
-          drinkOrder: [...this.drinkSelection],
-          timeOfOrder: Date(),
-          bill: this.total
-      }
+      tableNum: this.table, // set to QR route
+      isPaid: false, 
+      isServed: false, 
+      foodOrder: [...this.foodSelection],
+      drinkOrder: [...this.drinkSelection],
+      timeOfOrder: Date(),
+      bill: this.total
+  }
     this.createNewOrders(this.data)
     alert("Order placed!")
     this.disableButton = true;
