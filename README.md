@@ -19,13 +19,25 @@ To quickly see what our app is about, you can use a QR code scanner to scan the 
 For demonstration purposes, this QR code will display a hardcoded menu. 
 From here, you can place an order into the system, then follow the order on the Kitchen and MGMT pages. 
 
-< we stick in the QR CODE here>
+<h2 align="left"><img src="./frontend/table_1.png" alt="QR_One"/> </h2> 
+
 
 <h2>  Full Demo </h2>
 
-For a more complete demo, follow this link to be taken to the Admin screen of our app. Here, a user can input their restaurant details, menu options and the number of tables in their restaurant. 
+For a more complete demo, follow this link to be taken to the Admin screen of our app.
+
+From here , a user can input their restaurant details, menu options and the number of tables in their restaurant. 
+<insert Admin Image>
+
+
 Once all the details are entered, the app will generate a QR code for each table in the restaurant. Each scanned QR code will take the scanner to the restaurant's Customer Page and an order can be placed and tracked, like in the Quick Demo above.  
-<link to deployed site>
+<Customer Screen>
+
+After placing an order, you can then move to the Kitchen screen to see a list of orders yet to be served. Click the 'Served' button to process the order as served. This action will remove the order from the Kitchen view. You can follow the order in the MGMT section.
+<Kitchen Screen>
+
+Similar to the Kitchen screen, the MGMT screen displays unpaid orders. These can be processed as paid by clicking the 'Paid' button. Again, this action will remove the order from the MGMT screen. 
+<MGMT Screen>
 
 
 <h2>Enjoy!</h2>
