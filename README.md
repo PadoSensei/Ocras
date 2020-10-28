@@ -19,7 +19,7 @@ Then...
 <h2>  Quick Demo </h2>
 
 To quickly see what our app is about, you can use a QR code scanner to scan the code below and this will take you to the Customer Ordering page. 
-For demonstration purposes, this QR code will display a hardcoded menu. 
+
 From here, you can place an order into the system, then follow the order on the Kitchen and MGMT pages. 
 
 <h2 align="left"><img src="./frontend/table_1.png" alt="QR_One"/> </h2> 
@@ -38,6 +38,7 @@ From here , a user can input their restaurant details, menu options and the numb
 
 Once all the details are entered, the app will generate a QR code for each table in the restaurant. Each scanned QR code will take the scanner to the restaurant's Customer Page and an order can be placed and tracked, like in the Quick Demo above.  
 <h2 align="center"><img src="./Customer_Grab.png" alt="Customer"/> </h2> 
+
 
 After placing an order, you can then move to the Kitchen screen to see a list of orders yet to be served. Click the 'Served' button to process the order as served. This action will remove the order from the Kitchen view. You can follow the order in the MGMT section.
 <h2 align="center"><img src="./Kitchen_Grab.png" alt="Kitchen"/> </h2> 
