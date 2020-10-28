@@ -23,7 +23,7 @@
     </ion-item>
     
     <form [formGroup]="this.crudService.itemForm">
-      <h5>Menu Info:</h5>
+      <h5>Add menu items:</h5>
       <ion-item>
         <ion-label position="floating">Item</ion-label>
         <ion-input type="text" [(ngModel)]="item" required='true' formControlName="item"></ion-input>
@@ -32,7 +32,7 @@
         <ion-label position="floating">Description</ion-label>
         <ion-input type="text" [(ngModel)]="description" required='true' formControlName="description"></ion-input>
         <ion-item>
-          <ion-select interface="popover" [(ngModel)]="type" multiple="false" placeholder="Select One" formControlName="type">
+          <ion-select interface="popover" [(ngModel)]="type" multiple="false" placeholder="Select Type" formControlName="type" required='true'>
             <ion-select-option value="drink">Drink</ion-select-option>
             <ion-select-option value="food">Food</ion-select-option>
           </ion-select>

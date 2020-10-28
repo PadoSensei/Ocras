@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CrudService } from '../crud.service'
+import { Menu } from '../admin/menu'
 
 @Component({
   selector: 'app-customer',
@@ -61,7 +62,7 @@ export class CustomerComponent implements OnInit {
 
   getMenu = () => {
     this.crudService.getMenu(this.id)
-      .subscribe(res => {
+      .subscribe((res: Menu) => {
         this.name = res.restaurant.name;
         this.address = res.restaurant.address;
 
