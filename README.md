@@ -22,7 +22,7 @@ To quickly see what our app is about, you can use a QR code scanner to scan the 
 
 From here, you can place an order into the system, then follow the order on the Kitchen and MGMT pages. 
 
-<h2 align="left"><img src="./frontend/table_1.png" alt="QR_One"/> </h2> 
+<h2 align="left"><img height="300px" width="300px" src="./qr-code.png" alt="QR_One"/> </h2> 
 
 
 <h2>  Full Demo </h2>
@@ -36,7 +36,7 @@ From here , a user can input their restaurant details, menu options and the numb
 <h2 align="center"><img src="./Admin_Grab.png" alt="Admin"/> </h2> 
 
 
-Once all the details are entered, the app will generate a QR code for each table in the restaurant. Each scanned QR code will take the scanner to the restaurant's Customer Page and an order can be placed and tracked, like in the Quick Demo above.  
+Once all the details are entered, the app will generate a QR code for each table in the restaurant. Each scanned QR code will take the scanner to the restaurant's Customer Page where an order can be placed.  
 <h2 align="center"><img src="./Customer_Grab.png" alt="Customer"/> </h2> 
 
 
