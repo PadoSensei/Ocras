@@ -32,7 +32,7 @@ For a more complete demo, follow this link to be taken to the Admin screen of ou
 <a href="https://p-angular-cb7fc.web.app/tabs/tab4">Enter your menu into Ocras</a>
 
 
-From here , a user can input their restaurant details, menu options and the number of tables in their restaurant. 
+From here, a user can input their restaurant details, menu options and the number of tables in their restaurant. 
 <h2 align="center"><img src="./Admin_Grab.png" alt="Admin"/> </h2> 
 
 
@@ -46,7 +46,6 @@ After placing an order, you can then move to the Kitchen screen to see a list of
 
 Similar to the Kitchen screen, the MGMT screen displays unpaid orders. These can be processed as paid by clicking the 'Paid' button. Again, this action will remove the order from the MGMT screen. 
 <h2 align="center"><img src="./MGMT_Grab.png" alt="MGMT"/> </h2> 
-
 
 <h2>Enjoy!</h2>
 
