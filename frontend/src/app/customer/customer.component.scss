@@ -87,11 +87,15 @@ box-shadow: 10px 10px 24px -4px rgba(255,170,0,0.55);
 }
 
 .d-ordered-item {
-  margin: 0;
-  width: 49%;
+  margin: 5px;
+  padding: 5px 10px;
+  width: 42%;
   color:  rgba(61, 4, 51, 0.979);
   font-size: 26px;
   font-family: 'Lemonada', cursive;
+  border: #88bbe7 2px solid;
+  border-radius: 20px;
+  background-color:  #88bbe713;
 }  
 p {
   margin: 0;
